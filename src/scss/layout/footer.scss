@@ -1,0 +1,100 @@
+@import "mixins.scss";
+
+.ft-top {
+	background: #373737;
+	padding: 2rem 0;
+	.bear {
+		padding: 5px;
+		position: relative;
+		transition: 0.5s;
+		&:hover {
+			padding-left: 20px;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100%;
+			border-right: 1px solid #898989;
+		}
+		&__icon {
+			@include font(#898989, 44px);
+		}
+		&__contact {
+			text-transform: uppercase;
+			font-weight: 600;
+			@include font(#fff, 20px);
+		}
+		&__desc {
+			text-transform: uppercase;
+			@include font(#898989, 13px);
+		}
+	}
+}
+.ft-mid {
+	background: #313131;
+	padding: 2rem 0;
+	.bush {
+		&__title {
+			text-transform: uppercase;
+			font-weight: 600;
+			padding: 1rem 0;
+			display: inline-block;
+			@include font(#fff, 16px);
+		}
+		&__list {
+			display: flex;
+			flex-direction: column;
+		}
+		&__link {
+			display: inline-block;
+			font-weight: 500;
+			padding: 3px 0;
+			text-transform: uppercase;
+			transition: 0.5s;
+			@include font(#afafaf, 14px);
+			i {
+				transition: transform, opacity 3s;
+			}
+			&:hover {
+				color: $bon-pink;
+			}
+			&:hover i {
+				transform: scale(1.2,1.2);
+				opacity: 0;
+			}
+		}
+		&__hi {
+			display: flex;
+			padding: 1rem 0;
+		}
+		&__icon {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 40px;
+			height: 40px;
+			background: #888;
+			border-radius: 50%;
+			transition: all 0.3s;
+			@include font(#222, 13px);
+			i {
+				
+				transition: all 0.3s;
+			}
+			&:hover i {
+				color: #fff;
+			}
+			&:hover {
+				transform: scale(1.4,1.4);
+				background: $bon-pink;
+			}
+		}
+	}
+}
+.ft-bot {
+	background: #171717;
+	padding: 1.5rem 0;
+	color: #fff;
+}

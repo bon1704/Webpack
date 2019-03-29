@@ -1,0 +1,8 @@
+$bon-pink: #ca7379;
+$bon-pink2: #c1ac91;
+$bon-border: #ededed;
+
+@mixin font($color, $size) {
+	color: $color;
+	font-size: $size;
+}

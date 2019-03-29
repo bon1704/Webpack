@@ -4,8 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack')
 module.exports = {
   entry: {
-    app: './src/js/index.js',
-    lib: './src/js/lib.js'
+    app: './src/js/index.js'
   },
   output: {
     filename: './js/[name].bundle.js',
@@ -14,9 +13,9 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'IronMan',
       favicon: './src/favicon.ico',
-      template: './src/index.html'
+      template: './src/index.html',
+      title: 'SuperMan'
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
@@ -32,10 +31,28 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [{
-          loader: 'file-loader'
-        }]
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              name: '[name].[ext]',
+              fallback: 'file-loader',
+              // outputPath: 'public/images',
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+              mozjpeg: {
+                progressive: true,
+                quality: 75,
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.css$/,

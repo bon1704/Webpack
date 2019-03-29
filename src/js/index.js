@@ -1,3 +1,11 @@
+import 'bootstrap';
+import 'slick-carousel';
+import './app/slide.js';
+import './app/offCanvas.js';
+import './app/scrollTop';
 import '../scss/include.scss';
-import far from './app/far.js';
-far()
+import '../scss/lib/ihover.css';
+
+
+
+
